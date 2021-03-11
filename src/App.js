@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import TodoBar from './components/TodoBar';
+import React, {useState} from 'react'
+import TodoLists from './components/TodoLists';
 
 function App() {
+
+  const [todoVals, setTodoVal] = useState([])
+
+  const getVal = () => {
+    let trigger = true
+    todoVals.forEach((val) =>{
+      if(document.getElementById("todoText").value === val){
+        trigger = false
+      }
+    })
+    if(trigger){
+      setTodoVal([...todoVals, document.getElementById("todoText").value])
+    }
+    
+    }
+  const removeVal = (itemVal) => {
+    console.log("time to remove value: " + itemVal)
+    let x = todoVals.filter((val) => !(val === itemVal))
+    setTodoVal(x)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TodoBar func = {getVal}></TodoBar>
+      {todoVals.map((value, index) =>{
+        return <TodoLists val={value} key={index} func={removeVal}></TodoLists>
+      })}
     </div>
   );
 }
