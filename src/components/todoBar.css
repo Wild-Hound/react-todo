@@ -1,0 +1,14 @@
+.todoBarHolder {
+  display: inline-block;
+  padding: 20px 60px;
+  background: #2e4053;
+  border-radius: 5px;
+}
+#todoText {
+  padding: 5px 20px;
+  font-size: 18px;
+}
+#todoBtn {
+  font-size: 18px;
+  padding: 5px 15px;
+}

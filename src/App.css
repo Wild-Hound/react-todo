@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
 }
 
 .App-logo {
@@ -26,6 +32,33 @@
 
 .App-link {
   color: #61dafb;
+}
+.hero {
+  padding: 10px 40px;
+  background: #ff1f5f;
+  font-size: 36px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  margin-bottom: 0;
+}
+.listCon {
+  background: #f2f3f4;
+  border-radius: 5px;
+  border-bottom: 1px solid;
+}
+.todo {
+}
+.completed {
+  background: #00ffcc;
+}
+.App > div {
+  background: #1d2951;
+  padding: 100px 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
 }
 
 @keyframes App-logo-spin {

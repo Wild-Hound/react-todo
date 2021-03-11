@@ -2,7 +2,8 @@ import './App.css';
 import TodoBar from './components/TodoBar';
 import React, {useState} from 'react'
 import TodoLists from './components/TodoLists';
-import Completed from './Completed';
+import Completed from './components/Completed';
+
 
 function App() {
 
@@ -44,16 +45,23 @@ function App() {
 
   return (
     <div className="App">
-      <TodoBar func = {getVal}></TodoBar>
-      <h1 className="hero">Tasks Left</h1>
-      {todoVals.map((value, index) =>{
-        return <TodoLists val={value} key={index} func={removeVal} func2={completeAct}></TodoLists>
-      })}
-      <h1 className="hero">Tasks Completed</h1>
-      {compActs.map((CA) =>{
-        return <Completed title={CA}></Completed>
-      })}
-
+      <div>
+        <TodoBar func = {getVal}></TodoBar>
+        {/* break */}
+        <div className='listCon'>
+          <h1 className="hero todo">Tasks Left</h1>
+          {todoVals.map((value, index) =>{
+            return <TodoLists val={value} key={index} func={removeVal} func2={completeAct}></TodoLists>
+          })}
+        </div>
+        {/* break */}
+        <div className="listCon">
+          <h1 className="hero completed">Tasks Completed</h1>
+          {compActs.map((CA, index) =>{
+            return <Completed title={CA} key={index}></Completed>
+          })}
+        </div>
+      </div>
     </div>
   );
 }
